@@ -1,6 +1,7 @@
 create or replace view vi_aml_bs as
 select SYS_GUID() as id,
 --报文信息段
+	   substr(x.file_name,2,34) as file_name,--文件名
        substr(x.file_name,19,8)as bsrq,--报送日期
        to_char(x.crt_tm,'yyyymmdd')as dbrq,--打包日期
        t.brno,--机构号
